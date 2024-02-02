@@ -20,21 +20,6 @@
   </style>
   </head>
   <body>
-    <?php
-      require "partials/submit_to_db.php";
-      if ($showAlert){
-        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success! </strong>'. $showAlert. '.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
-      }
-      if ($showError){
-        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error! </strong> '. $showError .'
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
-      }
-    ?>
     <form action="index.php" method="post">
       <div class="container-fluid">
         <h4 style="background-color:rgb(169, 169, 169); font-size:1em">SECTION 3 - APPLICANT INFORMATION</h4>

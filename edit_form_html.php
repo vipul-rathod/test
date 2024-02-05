@@ -1,4 +1,4 @@
-<form id="view_form">
+<form id="view_form" method="post">
 <div class="container-fluid">
         <h4 style="background-color:rgb(169, 169, 169); font-size:1em">SECTION 3 - APPLICANT INFORMATION</h4>
         <div class="mb-3">
@@ -97,10 +97,6 @@
         </div>
       </div>
       <div>
-        <button id = "edit_btn" type="button" class="btn btn-primary" style="position:relative;left:50%; transform: translateX(-50%)">Edit Data</button>
-        <button id="submit_update_btn" type="submit" class="btn btn-primary" style="position:relative;left:50%; transform: translateX(-50%)" hidden>Submit Data</button>
+        <button type="button" class="btn btn-primary" style="position:relative;left:50%; transform: translateX(-50%)">Edit Data</button>
       </div>
       </form>
-      <script>
-        $("input").addClass('input-disabled');
-      </script>

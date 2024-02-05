@@ -14,7 +14,8 @@
             url: 'partials/submit_to_db.php',
             data: $('form').serialize(),
             success: function () {
-              alert('form was submitted');
+              // alert('form was submitted');
+              window.location = 'list_of_data.php';
                 }
             });
               return false;
@@ -37,21 +38,21 @@
   </head>
   <body>
     <?php
-      require "partials/submit_to_db.php";
-      if ($showAlert){
-        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success! </strong>'. $showAlert. '.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
-      }
-      if ($showError){
-        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error! </strong> '. $showError .'
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
-      }
+      // require "partials/submit_to_db.php";
+      // if ($showAlert){
+      //   echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+      //   <strong>Success! </strong>'. $showAlert. '.
+      //   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      //   </div>';
+      // }
+      // if ($showError){
+      //   echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+      //   <strong>Error! </strong> '. $showError .'
+      //   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      //   </div>';
+      // }
     ?>
-    <form>
+    <form id="form">
       <div class="container-fluid">
         <h4 style="background-color:rgb(169, 169, 169); font-size:1em">SECTION 3 - APPLICANT INFORMATION</h4>
         <div class="mb-3">
@@ -125,25 +126,25 @@
           <input type="text" name="ceiling1" id="ceiling1" style="width:20%; float:right">
         </div>
         <div class="mb-3">
-          <label style="width:10%"><b>CHIMNEY</b></label>
+          <label for="new" style="width:10%"><b>CHIMNEY</b></label>
           <input type="checkbox" name="new" id="new" value="new">
           <label for="new">New</label>
           <input type="checkbox" name="existing" id="existing" valule="existing">
           <label for="existing"> Existing (You are required to attach written proof of chimney to include statement of chimney's interior condition, within the past year (Per-NFPA211 Sec. 13&14))</label>
         </div>
         <div class="mb-3">
-          <label style="width:10%"><b>FLUE</b></label>
+          <label for="type" style="width:10%"><b>FLUE</b></label>
           <label for="type" style="width:10%; text-align:right">Type</label>
           <input type="text" name="type" id="type" style="width:20%; position:relative; left:4.4%;">
           <label for="size" style="width:10%; text-align:right">Size</label>
           <input type="text" name="size" id="size" style="width:20%; position:relative; left:4.4%;">
         </div>
         <div class="mb-3">
-          <label style="width:20%">Are there any other appliances connected to this flue? </label>
+          <label for="yes" style="width:20%">Are there any other appliances connected to this flue? </label>
           <input type="radio" name="yes" id="yes" value="yes">
           <label for="yes">Yes</label>
-          <input type="radio" name="yes" id="yes" value="no">
-          <label for="yes">No</label>
+          <input type="radio" name="no" id="no" value="no">
+          <label for="no">No</label>
         </div>
         <div class="mb-3">
           <p><b>Manufacturers specifications must be available at inspection.</b></p>
@@ -153,7 +154,17 @@
       <div>
         <button type="submit" class="btn btn-primary" style="position:relative;left:50%; transform: translateX(-50%)">Submit</button>
       </div>
+      <div style="margin:5px">
+        <button id="view_btn" type="button" class="btn btn-primary" style="position:relative;left:50%; transform: translateX(-50%)">View Data</button>
+      </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+        $("#view_btn").click(function(){
+          window.location = 'list_of_data.php';
+        })
+      })
+    </script>
   </body>
 </html>

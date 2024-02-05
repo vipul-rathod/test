@@ -4,17 +4,21 @@ $showAlert=false;
 $showError=false;
 $err = [];
 $lenErr = [];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     require "_dbconnect.php";
+
     $checkDataLists = [$_POST['applicantname'], $_POST['appstreetnumber'], $_POST['appstreetname'], $_POST['appcity'],
                         $_POST['appstate'], $_POST['apptelephone'], $_POST['appemail'],
                         $_POST['addstreetnumber'], $_POST['addstreetname'], $_POST['addcity'],$_POST['addstate']];
+
     foreach ($checkDataLists as $checkDataList){
         if (empty($checkDataList) || str_starts_with($checkDataList," ")){
             $err[]=$checkDataList;
         }
     }
-    if (strlen($_POST['applicantname']) >= 15){
+    
+    if (strlen($_POST['applicantname']) >= 35){
         $lenErr[]="Applicant Name is too long. This field accepts only 15 characters. ";
     }
     elseif (strlen($_POST['appstreetnumber']) >= 10){
@@ -52,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $addpobox = "";
         }
 
+
         $insData = ['apppobox' => $apppobox,
                     'applicantname'=>$_POST['applicantname'], 
                     'appstreetnumber'=>$_POST['appstreetnumber'],
@@ -79,25 +84,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     'otherapp'=>$otherapp,
                 ];
 
-        $sql_columns = implode(", ", array_keys($insData));
-
-        $prep = [];
-        $i=1;
+        $query="UPDATE `{$database}`.`{$table}` SET ";
         foreach ($insData as $key => $value){
-            $prep[$i." :".$key] = "'".$value."'";
-            $i++;
+            $query .= "`$key`='$value',";
         }
-        $sql_values = implode(", ", $prep);
+        $query = substr($query, 0, -1);
 
-        // INSERT DATA TO THE DATABASE.
-        $sql = "INSERT INTO `{$database}`.`{$table}` ($sql_columns) VALUES ($sql_values)";
-        $result = mysqli_query($conn, $sql);
-        if ($result){
-            echo "Applicant details have been submitted successfully!";
-            // $showAlert = "Applicant details have been submitted successfully!";
-            header("location: ../list_of_data.php");
-
+        $query .= ' WHERE ';
+        $id = $_GET['id'];
+        $where = ['id' => $id];
+        foreach($where as $key => $value)
+        {
+            $query .= '`'.$key.'`='.$value.','; 
         }
+        $query = substr($query, 0, -1);
+
+        $result = mysqli_query($conn, $query);
     }
 }
 

@@ -1,7 +1,7 @@
 <?php
-require_once 'config.php';
+require_once 'partials/_dbconnect.php';
 
-$sql = "SELECT * FROM `$table`";
+$sql = "SELECT * FROM `$database`.`$table`";
 $result = $conn->query($sql);
 $arr_users = [];
 if ($result->num_rows > 0 ){

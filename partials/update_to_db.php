@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+// declare(strict_types=1);
 $showAlert=false;
 $showError=false;
 $err = [];
@@ -37,10 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         else{
             $otherapp = $_POST['no'];
         }
+        print_r($_POST);
         if (isset($_POST['new'])){
             $chimney = $_POST['new'];
         }
-        else{
+        elseif(isset($_POST['existing'])){
             $chimney = $_POST['existing'];
         }
         if (isset($_POST['apppobox'])){

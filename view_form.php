@@ -79,9 +79,11 @@
             // Check and update all t he fields as per the database to view the form
             if (apppobox == ""){
               $("#apppobox").prop('checked', false);
+              $("#apppobox").prop('disabled', true);
             }
             else{
-            $("#apppobox").prop('checked', true);
+              $("#apppobox").prop('checked', true);
+              $("#apppobox").prop('disabled', true);
             }
 
             $("#applicantname").attr("value", applicantname);
@@ -95,9 +97,11 @@
 
             if (addpobox == ""){
               $("#addpobox").prop('checked', false);
+              $("#addpobox").prop('disabled', true);
             }
             else{
-            $("#addpobox").prop('checked', true);
+              $("#addpobox").prop('checked', true);
+              $("#addpobox").prop('disabled', true);
             }
 
             $("#addstreetnumber").attr("value", addstreetnumber);
@@ -112,50 +116,63 @@
             $("#wall1").attr("value", wall1);
             $("#ceiling1").attr("value", ceiling1);
 
-            if (chimney == "new"){
+            if (chimney == "New"){
               $("#new").prop("checked", true);
+              $("#new").prop('disabled', true);
+              $("#existing").prop('disabled', true);
             }
-            if (chimney == "existing"){
-            $("#existing").prop('checked', true);
+            if (chimney == "Existing"){
+              $("#existing").prop('checked', true);
+              $("#existing").prop('disabled', true);
+              $("#new").prop('disabled', true);
             }
 
             $("#type").attr("value", type);
             $("#size").attr("value", size);
 
             if (otherapp == "yes"){
-              $("#yes").prop("checked", true);
+              $("#yes").prop("checked", true|false);
+              $("#yes").prop('disabled', false);
+              $("#no").prop('disabled', false);
             }
             if (otherapp == "no"){
-            $("#no").prop('checked', true);
+              $("#no").prop('checked', true|false);
+              $("#no").prop('disabled', true);
+              $("#yes").prop('disabled', true);
             }
 
             $("#submit_btn").attr("hidden", true);
             $("#edit_btn").attr("hidden", false);
             $("#edit_btn").click(function(){
               $("*").attr("readonly", false);
+
+              $("#apppobox").prop('disabled', false);
+
+              $("#addpobox").prop('disabled', false);
+              $("#new").prop('disabled', false);
+              $("#existing").prop('disabled', false);
+              $("#yes").prop('disabled', false);
+              $("#no").prop('disabled', false);
+
+
+
               $("input").removeClass("input-disabled");
               $("*").attr("onclick", true);
               $("#edit_btn").attr("hidden", true);
               $("#update_btn").attr("hidden", false);
 
-              var id = "<?php echo $_GET['id']; ?>";
-              // alert(id);
-              $('#form').bind('update_btn', function () {
-                alert(id);
+              $("#update_btn").click(function(){
+                var id = "<?php echo $_GET['id']; ?>";
                 $.ajax({
                   type: 'post',
                   url: 'partials/update_to_db.php?id='+id,
                   data: $('#form').serialize(),
                   success: function (result) {
-                    alert(result);
-                    // window.location = 'list_of_data.php';
+                    window.location = 'list_of_data.php';
                       }
                 });
-                return false;
               })
             })
-
-
           })
         }
         viewFunc($);

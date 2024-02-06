@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $err[]=$checkDataList;
         }
     }
-    if (strlen($_POST['applicantname']) >= 15){
+    if (strlen($_POST['applicantname']) >= 50){
         $lenErr[]="Applicant Name is too long. This field accepts only 15 characters. ";
     }
     elseif (strlen($_POST['appstreetnumber']) >= 10){

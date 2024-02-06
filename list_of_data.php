@@ -30,7 +30,6 @@ if ($result->num_rows > 0 ){
                 foreach($row_data_arrs as $row_data_arr):
                     echo '<tr>';
                     foreach($row_data_arr as $row_data):
-                        // echo ('<td><a href="view_form.php?id='.$row_data_arr[0].'">'.$row_data.'</td>');
                         echo ('<td><a href="view_form.php?id='.$row_data_arr[0].'">'.$row_data.'</td>');
                     endforeach;
                     echo '</tr>';

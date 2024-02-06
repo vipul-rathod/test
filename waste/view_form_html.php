@@ -87,9 +87,9 @@
         </div>
         <div class="mb-3">
           <label for="yes" style="width:20%">Are there any other appliances connected to this flue? </label>
-          <input type="radio" name="yes" id="yes" onclick="return false;" value= "Yes" <?php echo ($row["otherapp"]=='yes')? 'checked':'' ?> >
+          <input type="radio" name="conn_radio" id="yes" onclick="return false;" value= "Yes" <?php echo ($row["otherapp"]=='yes')? 'checked':'' ?> >
           <label for="yes">Yes</label>
-          <input type="radio" name="no" id="no" onclick="return false;" value="No" <?php echo ($row["otherapp"]=='no')? 'checked':'' ?> >
+          <input type="radio" name="conn_radio" id="no" onclick="return false;" value="No" <?php echo ($row["otherapp"]=='no')? 'checked':'' ?> >
           <label for="yes">No</label>
         </div>
         <div class="mb-3">

@@ -24,7 +24,6 @@
         </script>
   </head>
   <body>
-    <?php require "navbar.html" ?>
     <form id="form">
     <?php
       require "index.html";

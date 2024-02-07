@@ -16,14 +16,16 @@ if ($result->num_rows > 0 ){
 ?>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"/>
-<div class="container">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/style.css">
+<div class="container-fluid">
     <div class="row">
         <div class="col">
             <table id="myTable" class="display">
                 <thead>
                     <?php
                         for ($x=0; $x<count($columns); $x++):
-                            echo ('<td>'.$columns[$x].'</td>');
+                            echo ('<td>'.ucfirst($columns[$x]).'</td>');
                         endfor;
                     ?>
                 </thead>
@@ -46,5 +48,18 @@ if ($result->num_rows > 0 ){
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
 <script>
-    let table = new DataTable('#myTable');
+
+    var table = $('#myTable').DataTable({
+        'fnDrawCallback': function (oSettings) {
+		$('.dataTables_filter').each(function () {
+			$(this).html('<button id="add_new_btn" class="btn btn-primary mr-xs pull-left" type="button" style="margin:10px">Add New Data</button>');
+		});
+	}
+});
+
+    $(document).ready(function(){
+        $("#add_new_btn").click(function(){
+            window.location = "index.php";
+        })
+    })
 </script>

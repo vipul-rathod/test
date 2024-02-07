@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     foreach ($checkDataLists as $checkDataList){
         if (empty($checkDataList) || str_starts_with($checkDataList," ")){
             $err[]=$checkDataList;
+            echo $checkDataList;
         }
     }
     if (strlen($_POST['applicantname']) >= 50){

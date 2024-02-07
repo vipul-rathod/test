@@ -16,28 +16,32 @@ if ($result->num_rows > 0 ){
 ?>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"/>
-
-<table id="myTable" class="display">
-    <thead>
-        <?php
-            for ($x=0; $x<count($columns); $x++):
-                echo ('<td>'.$columns[$x].'</td>');
-            endfor;
-        ?>
-    </thead>
-    <tbody>
-            <?php
-                foreach($row_data_arrs as $row_data_arr):
-                    echo '<tr>';
-                    foreach($row_data_arr as $row_data):
-                        echo ('<td><a href="view_form.php?id='.$row_data_arr[0].'">'.$row_data.'</td>');
-                    endforeach;
-                    echo '</tr>';
-                endforeach;
-            ?>
-    </tbody>
-</table>
-
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table id="myTable" class="display">
+                <thead>
+                    <?php
+                        for ($x=0; $x<count($columns); $x++):
+                            echo ('<td>'.$columns[$x].'</td>');
+                        endfor;
+                    ?>
+                </thead>
+                <tbody>
+                        <?php
+                            foreach($row_data_arrs as $row_data_arr):
+                                echo '<tr>';
+                                foreach($row_data_arr as $row_data):
+                                    echo ('<td><a href="view_form.php?id='.$row_data_arr[0].'">'.$row_data.'</td>');
+                                endforeach;
+                                echo '</tr>';
+                            endforeach;
+                        ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 

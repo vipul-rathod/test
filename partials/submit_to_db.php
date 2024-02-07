@@ -44,13 +44,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $apppobox = $_POST['apppobox'];
         }
         else{
-            $apppobox = "";
+            $apppobox = "off";
+            echo $apppobox;
         }
         if (isset($_POST["addpobox"])){
             $addpobox = $_POST["addpobox"];
         }
         else{
-            $addpobox = "";
+            $addpobox = "off";
         }
 
         $insData = ['apppobox' => $apppobox,

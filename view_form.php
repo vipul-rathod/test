@@ -1,29 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>View Form</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 
-  <style>
-    .input-disabled{
-      background-color:#EBEBE4;
-      border:1px solid #ABADB3;
-      padding:2px 1px;
-    }
-    div.container-fluid{
-      position:relative;
-      width: 100%;
-      margin: 5px;
-      border: 1px solid #000000;
-    }
-    .required::before{
-      content: "*";
-      color: red;
-    }
-  </style>
   </head>
   <body>
 
@@ -77,7 +61,7 @@
             $("input").addClass("input-disabled");
 
             // Check and update all t he fields as per the database to view the form
-            if (apppobox == ""){
+            if (apppobox == "off"){
               $("#apppobox").prop('checked', false);
               $("#apppobox").prop('disabled', true);
             }
@@ -95,7 +79,7 @@
             $("#apptelephone").attr("value", apptelephone);
             $("#appemail").attr("value", appemail);
 
-            if (addpobox == ""){
+            if (addpobox == "off"){
               $("#addpobox").prop('checked', false);
               $("#addpobox").prop('disabled', true);
             }
@@ -113,6 +97,7 @@
             $("#floormaterial").attr("value", floormaterial);
             $("#wall").attr("value", wall);
             $("#ceiling").attr("value", ceiling);
+            $("#clearnace").attr("value", clearnace);
             $("#wall1").attr("value", wall1);
             $("#ceiling1").attr("value", ceiling1);
 
@@ -122,6 +107,7 @@
               $("#existing").prop('disabled', true);
             }
             if (chimney == "Existing"){
+              $("#new").prop('checked', false);
               $("#existing").prop('checked', true);
               $("#existing").prop('disabled', true);
               $("#new").prop('disabled', true);

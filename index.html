@@ -5,8 +5,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <input type="checkbox" name="apppobox" id="apppobox">
+        <div class="col switch-field">
+            <input type="checkbox" name="apppobox" id="apppobox" checked>
             <label for="apppobox">PO Box</label>
         </div>
     </div>
@@ -65,7 +65,7 @@
             <label class="required" for="appemail" style="width:100%;">Email</label>
         </div>
         <div class="col-md-5">
-            <input required="required" type="text" name="appemail" id="appemail" style="width:100%;">
+            <input required="required" type="email" name="appemail" id="appemail" style="width:100%;">
         </div>
     </div>
 
@@ -76,8 +76,8 @@
     </div>
 
     <div class="row">
-        <div class="col">
-            <input type="checkbox" name="addpobox" id="addpobox">
+        <div class="col switch-field">
+            <input type="checkbox" name="addpobox" id="addpobox" checked>
             <label for="addpobox">PO Box</label>
         </div>
     </div>
@@ -167,12 +167,17 @@
     </div>
 
     <div class="row">
-        <div class="col">
+        <div class="col-1">
             <label for="new"><b>CHIMNEY</b></label>
-            <input type="checkbox" name="new" id="new" value="New">
+        </div>
+        <div class="col-1 switch-field">
+            <input type="checkbox" name="new" id="new" value="New" checked>
             <label for="new">New</label>
             <input type="checkbox" name="existing" id="existing" value="Existing">
-            <label for="existing"> Existing</label> <label for="existing">(You are required to attach written proof of chimney to include statement of chimney's interior condition, within the past year (Per-NFPA211 Sec. 13&14))</label>
+            <label for="existing"> Existing</label>
+        </div>
+        <div class="col-10">
+            <label for="existing">(You are required to attach written proof of chimney to include statement of chimney's interior condition, within the past year (Per-NFPA211 Sec. 13&14))</label>
         </div>
     </div>
 
@@ -195,11 +200,13 @@
     </div>
 
     <div class="row">
-        <div class="col">
+        <div class="col-3">
             <label for="yes">Are there any other appliances connected to this flue? </label>
-            <input type="radio" name="yes" id="yes" value="yes">
+        </div>
+        <div class="col switch-field">
+            <input type="radio" name="yes" id="yes" value="yes" checked>
             <label for="yes">Yes</label>
-            <input type="radio" name="no" id="no" value="no">
+            <input type="radio" name="yes" id="no" value="no">
             <label for="no">No</label>
         </div>
     </div>

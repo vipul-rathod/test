@@ -14,7 +14,7 @@ if ($result->num_rows > 0 ){
     endfor;
 }
 ?>
-
+<!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"/>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/style.css">
@@ -50,12 +50,14 @@ if ($result->num_rows > 0 ){
 <script>
 
     var table = $('#myTable').DataTable({
-        'fnDrawCallback': function (oSettings) {
-		$('.dataTables_filter').each(function () {
+        scrollX: true,
+        'fnDrawCallback': function () {
+		$('.dataTables_filter').each(function (oSettings) {
 			$(this).html('<button id="add_new_btn" class="btn btn-primary mr-xs pull-left" type="button" style="margin:10px">Add New Data</button>');
 		});
 	}
 });
+    table.columns.adjust().draw();
 
     $(document).ready(function(){
         $("#add_new_btn").click(function(){

@@ -48,13 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $apppobox = $_POST['apppobox'];
         }
         else{
-            $apppobox = "";
+            $apppobox = "off";
         }
         if (isset($_POST["addpobox"])){
             $addpobox = $_POST["addpobox"];
         }
         else{
-            $addpobox = "";
+            $addpobox = "off";
         }
 
 

@@ -132,8 +132,8 @@
 
             if (otherapp == "yes"){
               $("#yes").prop("checked", true|false);
-              $("#yes").prop('disabled', false);
-              $("#no").prop('disabled', false);
+              $("#yes").prop('disabled', true);
+              $("#no").prop('disabled', true);
             }
             if (otherapp == "no"){
               $("#no").prop('checked', true|false);
